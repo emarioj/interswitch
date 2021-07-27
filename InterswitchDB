@@ -1,0 +1,49 @@
+Create Database Banksystem;
+
+CREATE TABLE Banker_Users (
+    ID INT IDENTITY(1,1),
+    Username varchar(100) NOT NULL,
+    PasswordHash BINARY(100) NOT NULL,
+    Lastname varchar(100) NOT NULL,
+    Fastname varchar(100) NOT NULL,
+    CONSTRAINT FK_Branch_code FOREIGN KEY (Branch_code),
+    EmailAddress VARCHAR(150) PRIMARY KEY NOT NULL
+);
+CREATE TABLE Interswitch_Users (
+    ID INT IDENTITY(1,1),
+    Username varchar(100) NOT NULL,
+    PasswordHash BINARY(100) NOT NULL,
+    Lastname varchar(100) NOT NULL,
+    Fastname varchar(100) NOT NULL,
+    CONSTRAINT FK_Branch_code FOREIGN KEY (Branch_code),
+    EmailAddress VARCHAR(150) PRIMARY KEY NOT NULL
+);
+
+CREATE TABLE Customers (
+    ID INT IDENTITY(1,1),
+    Username varchar(100) NOT NULL,
+    PasswordHash BINARY(100) NOT NULL,
+    Lastname varchar(100) NOT NULL,
+    Fastname varchar(100) NOT NULL,
+    Corporate varchar(10) NOT NULL,
+    EmailAddress VARCHAR(150) PRIMARY KEY NOT NULL
+
+);
+
+CREATE TABLE User_roles (
+    Role_code INT IDENTITY(1,1),
+    Role_name varchar(50) NOT NULL,
+    Role_description varchar(200) NOT NULL
+);
+
+CREATE TABLE Institution (
+    Institution_code INT IDENTITY(1,1),
+    Institution_name varchar(20) NOT NULL
+);
+
+CREATE TABLE Data_access (
+    CONSTRAINT FKRole_code INT,
+    User_name varchar(20) NOT NULL,
+);
+
+
